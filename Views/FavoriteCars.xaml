@@ -4,7 +4,6 @@
              x:Class="CarShopMaui.Views.FavoriteCars"
              Title="FavoriteCars">
     <ScrollView>
-
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="200"/>
@@ -31,7 +30,6 @@
             <Label Grid.Row="1" Grid.Column="2" BackgroundColor="Green" Text="1"/>
 
             <Label Grid.Row="1" Grid.Column="2" BackgroundColor="Black" Text="1"/>
-
         </Grid>
     </ScrollView>
 </ContentPage>

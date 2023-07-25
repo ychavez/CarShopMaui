@@ -4,7 +4,7 @@
              x:Class="CarShopMaui.Views.CarsForSale"
              Title="CarsForSale">
     <VerticalStackLayout>
-        <Button Text="Hola"></Button>
+        <Button Text="Hola" Clicked="Button_Clicked"></Button>
         <Button Text="Hola"></Button>
         <Button Text="Hola"></Button>
         <Button Text="Hola"></Button>
