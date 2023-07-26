@@ -2,35 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarShopMaui.Views.FavoriteCars"
-             
+              xmlns:Model="clr-namespace:CarShopMaui.Models"
              Title="FavoriteCars">
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="600"/>
-                <RowDefinition Height="200"/>
-                <RowDefinition Height="500"/>
-            </Grid.RowDefinitions>
+    <ListView x:Name="CarList" RowHeight="150">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="Model:Car">
+                <ViewCell>
+                    <Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width=".5*"/>
+                            </Grid.ColumnDefinitions>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Row="0" Grid.Column="1" Text="Botton" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Image Source="{Binding PhotoUrl}"/>
 
+                            <VerticalStackLayout Grid.Column="1">
+                                <Label Text="{Binding Brand}"/>
+                                <Label Text="{Binding Model}"/>
+                                <Label Text="{Binding Description}"/>
+                                <Label Text="{Binding Year}"/>
+                            </VerticalStackLayout>
 
-            <Image Source="dotnet_bot" Grid.Column="3" Grid.Row="2"/>
-            <Label BackgroundColor="Blue" Text="1"/>
-
-            <Label Grid.Row="1" BackgroundColor="Red" Text="1"/>
-
-            <Label Grid.Row="3" Grid.Column="1" BackgroundColor="Pink" Text="1"/>
-            <Label Grid.Row="1" Grid.Column="2" BackgroundColor="Green" Text="1"/>
-
-            <Label Grid.Row="1" Grid.Column="2" BackgroundColor="Black" Text="1"/>
-        </Grid>
-    </ScrollView>
+                        </Grid>
+                    </Border>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
