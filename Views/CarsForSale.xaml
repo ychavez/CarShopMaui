@@ -19,16 +19,16 @@
                                 <ColumnDefinition Width=".5*"/>
                             </Grid.ColumnDefinitions>
 
-                             <Image Source="{Binding PhotoUrl}"/>
+                            <Image Source="{Binding PhotoUrl}"/>
 
                             <VerticalStackLayout Grid.Column="1">
-                                 <Label Text="{Binding Brand}"/>
-                                 <Label Text="{Binding Model}"/>
-                                 <Label Text="{Binding Description}"/>
-                                 <Label Text="{Binding Year}"/>
+                                <Label Text="{Binding Brand}"/>
+                                <Label Text="{Binding Model}"/>
+                                <Label Text="{Binding Description}"/>
+                                <Label Text="{Binding Year}"/>
                             </VerticalStackLayout>
- 
-                             <Button Text="Favorito" Grid.Column="2" Clicked="Button_Clicked"/>
+
+                            <Button Text="Favorito" Grid.Column="2" Clicked="Button_Clicked"/>
 
                         </Grid>
                     </Border>
