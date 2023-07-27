@@ -36,11 +36,23 @@ namespace CarShopMaui.Context
             await Init();
 
             var _car = await GetCarById(car.Id);
-          
+
             if (_car is not null)
                 return false;
 
             return await _connection.InsertAsync(car) == 1;
+        }
+
+        public async Task<bool> RemoveFavorite(int id)
+        {
+            await Init();
+
+            var _car = await GetCarById(id);
+
+            if (_car is null)
+                return false;
+
+            return await _connection.DeleteAsync(_car) == 1;
         }
     }
 }
