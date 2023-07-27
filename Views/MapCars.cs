@@ -1,4 +1,5 @@
 ﻿using CarShopMaui.Context;
+using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
 
 namespace CarShopMaui.Views
@@ -22,6 +23,7 @@ namespace CarShopMaui.Views
 
             var carsForSale = await new RestService().GetCars();
 
+          
             foreach (var car in carsForSale)
             {
                 if (car.Lat is null || car.Lon is null)
@@ -33,15 +35,9 @@ namespace CarShopMaui.Views
                         Label = car.Description,
                         Location = new Location(car.Lat.Value, car.Lon.Value)
                     });
-
             }
 
-
-
             Content = map;
-
         }
-
-
     }
 }
