@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarShopMaui.Views.AddCar"
               xmlns:view="clr-namespace:CarShopMaui.Views"
+             xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
              Title="AddCar">
     <ContentPage.Resources>
         
@@ -26,13 +27,13 @@
                Source="{Binding CarModel.PhotoUrl}"/>
         </Frame>
 
-        <Entry Placeholder="Modelo"  Text="{Binding CarModel.Model}"   />
+        <mdc:TextField   Text="{Binding CarModel.Model}"   />
         <Entry Placeholder="Marca" Text="{Binding CarModel.Brand}" Style="{StaticResource txtCar}"/>
         <Entry Placeholder="Año" Keyboard="Numeric" Text="{Binding CarModel.Year}"  />
         <Entry Placeholder="Descripcion" Text="{Binding CarModel.Description}"/>
         <Entry Placeholder="Precio" Keyboard="Numeric" Text="{Binding CarModel.Price}" Style="{StaticResource txtCar}"/>
         <Button Text="Aceptar" Command="{Binding AddCarCommand}" />
-        
-        <Button Text="Tomar foto" Command="{Binding TakePhotoCommand}" />
+
+        <mdc:Button Text="Tomar foto" Command="{Binding TakePhotoCommand}" />
     </VerticalStackLayout>
 </ContentPage>

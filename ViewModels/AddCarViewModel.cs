@@ -38,7 +38,6 @@ namespace CarShopMaui.ViewModels
             await Navigation.PopAsync();
 
             WeakReferenceMessenger.Default.Send(new RefreshCarsMessage());
-
         }
     }
 }

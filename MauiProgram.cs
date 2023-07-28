@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Material.Components.Maui.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace CarShopMaui;
 
@@ -14,7 +15,8 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+			})
+			.UseMaterialComponents(new() { "OpenSans-Regular.ttf", "OpenSans-Semibold.ttf" });
 
 
 #if DEBUG

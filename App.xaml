@@ -2,16 +2,19 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CarShopMaui"
+              xmlns:mds="clr-namespace:Material.Components.Maui.Styles;assembly=Material.Components.Maui"
              x:Class="CarShopMaui.App">
     <Application.Resources>
         <Style TargetType="Label">
             <Setter Property="BackgroundColor" Value="White"/>
         </Style>
-        <!--<ResourceDictionary>
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <!--<ResourceDictionary Source="Resources/Styles/Colors.xaml" />-->
+                <!--<ResourceDictionary Source="Resources/Styles/Styles.xaml" />-->
+                <mds:MaterialStyles Dark="DarkBlue" Light="Green" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>-->
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>
