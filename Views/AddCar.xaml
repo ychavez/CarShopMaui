@@ -8,14 +8,16 @@
         <Frame CornerRadius="100"  HeightRequest="200" 
                WidthRequest="200">
             <Image 
-                x:Name="imgCar"  Source="dotnet_bot"/>
+               Source="{Binding CarModel.PhotoUrl}"/>
         </Frame>
 
-        <Entry x:Name="entryModelo" Placeholder="Modelo"/>
-        <Entry x:Name="entryMarca"  Placeholder="Marca"/>
-        <Entry x:Name="entryAnio" Placeholder="Año" Keyboard="Numeric"/>
-        <Entry x:Name="entryDescripcion" Placeholder="Descripcion"/>
-        <Entry x:Name="entryPrecio" Placeholder="Precio" Keyboard="Numeric"/>
-        <Button x:Name="btnAceptar" Text="Aceptar" Clicked="btnAceptar_Clicked"/>
+        <Entry Placeholder="Modelo"  Text="{Binding CarModel.Model}"/>
+        <Entry Placeholder="Marca" Text="{Binding CarModel.Brand}"/>
+        <Entry Placeholder="Año" Keyboard="Numeric" Text="{Binding CarModel.Year}"/>
+        <Entry Placeholder="Descripcion" Text="{Binding CarModel.Description}"/>
+        <Entry Placeholder="Precio" Keyboard="Numeric" Text="{Binding CarModel.Price}"/>
+        <Button Text="Aceptar" Command="{Binding AddCarCommand}" />
+        
+        <Button Text="Tomar foto" Command="{Binding TakePhotoCommand}" />
     </VerticalStackLayout>
 </ContentPage>

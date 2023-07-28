@@ -13,7 +13,7 @@ namespace CarShopMaui.ViewModels.Base
                 return false;
 
             storage = value;
-
+     
             OnPropertyChanged(propertyName);
 
             return true;
