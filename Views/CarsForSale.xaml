@@ -36,8 +36,8 @@
                             </VerticalStackLayout>
 
                             <Button x:Name="btnFavorite" Text="Favorito" Grid.Column="2"   
-                                   Command="{Binding  Source={ x:Reference CarsForSalePage}, 
-                                                      Path=BindingContext.SetFavoriteCommand}"  
+                                   Command="{Binding  Source={x:Reference CarsForSalePage}, 
+                                Path=BindingContext.SetFavoriteCommand}"  
                                    CommandParameter="{x:Reference btnFavorite}" />
 
                         </Grid>

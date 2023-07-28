@@ -4,6 +4,21 @@
              x:Class="CarShopMaui.Views.AddCar"
               xmlns:view="clr-namespace:CarShopMaui.Views"
              Title="AddCar">
+    <ContentPage.Resources>
+        
+        <!--estilo explicito-->
+        <Style x:Key="txtCar" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="AliceBlue"/>
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="TextColor" Value="Blue"/>
+        </Style>
+ <!--estilos implicitos-->
+        <Style TargetType="Entry">
+            <Setter Property="WidthRequest" Value="150"/>
+            <Setter Property="TextColor" Value="Green"/>
+        </Style>
+        
+    </ContentPage.Resources>
     <VerticalStackLayout>
         <Frame CornerRadius="100"  HeightRequest="200" 
                WidthRequest="200">
@@ -11,11 +26,11 @@
                Source="{Binding CarModel.PhotoUrl}"/>
         </Frame>
 
-        <Entry Placeholder="Modelo"  Text="{Binding CarModel.Model}"/>
-        <Entry Placeholder="Marca" Text="{Binding CarModel.Brand}"/>
-        <Entry Placeholder="Año" Keyboard="Numeric" Text="{Binding CarModel.Year}"/>
+        <Entry Placeholder="Modelo"  Text="{Binding CarModel.Model}"   />
+        <Entry Placeholder="Marca" Text="{Binding CarModel.Brand}" Style="{StaticResource txtCar}"/>
+        <Entry Placeholder="Año" Keyboard="Numeric" Text="{Binding CarModel.Year}"  />
         <Entry Placeholder="Descripcion" Text="{Binding CarModel.Description}"/>
-        <Entry Placeholder="Precio" Keyboard="Numeric" Text="{Binding CarModel.Price}"/>
+        <Entry Placeholder="Precio" Keyboard="Numeric" Text="{Binding CarModel.Price}" Style="{StaticResource txtCar}"/>
         <Button Text="Aceptar" Command="{Binding AddCarCommand}" />
         
         <Button Text="Tomar foto" Command="{Binding TakePhotoCommand}" />

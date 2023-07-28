@@ -4,11 +4,14 @@
              xmlns:local="clr-namespace:CarShopMaui"
              x:Class="CarShopMaui.App">
     <Application.Resources>
-        <ResourceDictionary>
+        <Style TargetType="Label">
+            <Setter Property="BackgroundColor" Value="White"/>
+        </Style>
+        <!--<ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
     </Application.Resources>
 </Application>

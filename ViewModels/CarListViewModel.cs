@@ -23,7 +23,6 @@ namespace CarShopMaui.ViewModels
             set => SetProperty(ref isBusy, value);
         }
 
-
         ObservableCollection<Car> _carList;
         public ObservableCollection<Car> CarsList
         {
