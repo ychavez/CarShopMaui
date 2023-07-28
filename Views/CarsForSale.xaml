@@ -3,11 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarShopMaui.Views.CarsForSale"
              xmlns:Model="clr-namespace:CarShopMaui.Models"
+             x:Name="CarsForSalePage"
              Title="CarsForSale">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Agregar" Command="{Binding AddCommand}"/>
     </ContentPage.ToolbarItems>
-    <ListView x:Name="CarList" RowHeight="150">
+    <ListView x:Name="CarList" 
+              RowHeight="150" 
+              ItemsSource="{Binding CarsList}"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsPullToRefreshEnabled="True"
+              IsRefreshing="{Binding IsBusy}"
+              >
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="Model:Car">
                 <ViewCell>
@@ -28,7 +35,10 @@
                                 <Label Text="{Binding Year}"/>
                             </VerticalStackLayout>
 
-                            <Button Text="Favorito" Grid.Column="2" Clicked="Button_Clicked"/>
+                            <Button x:Name="btnFavorite" Text="Favorito" Grid.Column="2"   
+                                   Command="{Binding  Source={ x:Reference CarsForSalePage}, 
+                                                      Path=BindingContext.SetFavoriteCommand}"  
+                                   CommandParameter="{x:Reference btnFavorite}" />
 
                         </Grid>
                     </Border>

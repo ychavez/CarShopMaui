@@ -1,6 +1,8 @@
 ﻿using CarShopMaui.Context;
+using CarShopMaui.Messages;
 using CarShopMaui.Models;
 using CarShopMaui.ViewModels.Base;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Windows.Input;
 
 namespace CarShopMaui.ViewModels
@@ -34,6 +36,9 @@ namespace CarShopMaui.ViewModels
 
             await new RestService().SetCar(CarModel);
             await Navigation.PopAsync();
+
+            WeakReferenceMessenger.Default.Send(new RefreshCarsMessage());
+
         }
     }
 }
