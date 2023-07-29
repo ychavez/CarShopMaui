@@ -1,5 +1,9 @@
-﻿using Material.Components.Maui.Extensions;
+﻿using CarShopMaui.Controls;
+using CarShopMaui.Platforms.Android.Renders;
+using Material.Components.Maui.Extensions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
+
 
 namespace CarShopMaui;
 
@@ -11,6 +15,12 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
 			.UseMauiMaps()
+			.UseMauiCompatibility()
+			.ConfigureMauiHandlers((handler) => { 
+			
+				//handler.AddCompatibilityRenderer(typeof(CustomEntry), typeof(CustomEntryRenderAndroid));
+
+			})
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

@@ -2,23 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CarShopMaui.Views.AddCar"
-              xmlns:view="clr-namespace:CarShopMaui.Views"
+             xmlns:view="clr-namespace:CarShopMaui.Views"
              xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+             xmlns:controls="clr-namespace:CarShopMaui.Controls"
              Title="AddCar">
     <ContentPage.Resources>
-        
-        <!--estilo explicito-->
+
+        <!--estilo explicito--><!--
         <Style x:Key="txtCar" TargetType="Entry">
             <Setter Property="BackgroundColor" Value="AliceBlue"/>
             <Setter Property="FontSize" Value="40"/>
             <Setter Property="TextColor" Value="Blue"/>
         </Style>
- <!--estilos implicitos-->
+        --><!--estilos implicitos--><!--
         <Style TargetType="Entry">
             <Setter Property="WidthRequest" Value="150"/>
             <Setter Property="TextColor" Value="Green"/>
-        </Style>
-        
+        </Style>-->
+
     </ContentPage.Resources>
     <VerticalStackLayout>
         <Frame CornerRadius="100"  HeightRequest="200" 
@@ -28,10 +29,12 @@
         </Frame>
 
         <mdc:TextField   Text="{Binding CarModel.Model}"   />
-        <Entry Placeholder="Marca" Text="{Binding CarModel.Brand}" Style="{StaticResource txtCar}"/>
-        <Entry Placeholder="Año" Keyboard="Numeric" Text="{Binding CarModel.Year}"  />
+        <Entry Placeholder="Marca" Text="{Binding CarModel.Brand}" />
+        <Frame CornerRadius="100">
+            <controls:CustomEntry Placeholder="Año" Keyboard="Numeric" Text="{Binding CarModel.Year}"  />
+        </Frame>
         <Entry Placeholder="Descripcion" Text="{Binding CarModel.Description}"/>
-        <Entry Placeholder="Precio" Keyboard="Numeric" Text="{Binding CarModel.Price}" Style="{StaticResource txtCar}"/>
+        <Entry Placeholder="Precio" Keyboard="Numeric" Text="{Binding CarModel.Price}" />
         <Button Text="Aceptar" Command="{Binding AddCarCommand}" />
 
         <mdc:Button Text="Tomar foto" Command="{Binding TakePhotoCommand}" />
