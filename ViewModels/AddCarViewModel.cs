@@ -13,11 +13,25 @@ namespace CarShopMaui.ViewModels
         public ICommand AddCarCommand { get; set; }
         public ICommand TakePhotoCommand { get; set; }
 
+        private bool isValidModel;
+
+        public bool IsValidModel
+        {
+            get { return isValidModel ; }
+            set { SetProperty(ref isValidModel, value); }
+        }
+
+        
         public AddCarViewModel(INavigation navigation) : base(navigation)
         {
             CarModel = new Car();
-            AddCarCommand = new Command(async x => await AddCar());
+            AddCarCommand = new Command(async () =>  await AddCar(), CanExecute);
             TakePhotoCommand = new Command(async x => await TakePhoto());
+        }
+
+        private bool CanExecute() 
+        {
+            return IsValidModel;
         }
 
         private async Task TakePhoto()
@@ -30,6 +44,12 @@ namespace CarShopMaui.ViewModels
 
         private async Task AddCar()
         {
+            if (!IsValidModel)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Necesitas llenar correctamente los campos", "Ok");
+                return;
+            }
+
             var location = await Geolocation.Default.GetLocationAsync();
             CarModel.Lon = location.Longitude;
             CarModel.Lat = location.Latitude;

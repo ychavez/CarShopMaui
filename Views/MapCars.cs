@@ -16,7 +16,13 @@ namespace CarShopMaui.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var location = await Geolocation.Default.GetLocationAsync();
+            Location location;
+#if DEBUG
+            location = new Location(19.4326, -99.1332);
+#else
+            location = await Geolocation.Default.GetLocationAsync();
+#endif    
+            
             map = new(MapSpan.FromCenterAndRadius(location, Distance.FromKilometers(5)));
 
             map.IsShowingUser = true;

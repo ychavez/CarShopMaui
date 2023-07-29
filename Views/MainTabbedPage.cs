@@ -12,6 +12,8 @@ namespace CarShopMaui.Views
             Children.Add(new MapCars());
 
             On<Microsoft.Maui.Controls.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
+
+            
         }
     }
 }
